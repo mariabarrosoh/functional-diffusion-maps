@@ -72,9 +72,6 @@ class FDM(TransformerMixin, BaseEstimator):
             if self.step == 0:
                 self.n_components_ = 1
             else:
-                #TODO: igualar np.count_nonzero a n_components_
-                #OLD
-                #np.count_nonzero(np.abs(eigenvals)**self.step >self.n_components*np.abs(eigenvals[0])**self.step) - 1
                 self.n_components_ = np.count_nonzero(np.abs(eigenvals)**self.step >self.n_components*np.abs(eigenvals[0])**self.step) - 1
         else:
             raise ValueError(("%s is not a valid 'n_components' parameter. "
